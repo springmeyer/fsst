@@ -21,6 +21,7 @@
 #include <immintrin.h>
 
 #ifdef _WIN32
+#include <intrin.h>
 bool fsst_hasAVX512() {
    int info[4];
    __cpuidex(info, 0x00000007, 0);
