@@ -35,6 +35,9 @@ set_source_files_properties(
 endif()
 
 add_library(fsst libfsst.cpp fsst_avx512.cpp fsst_avx512_unroll1.inc fsst_avx512_unroll2.inc fsst_avx512_unroll3.inc fsst_avx512_unroll4.inc)
+set_target_properties(fsst PROPERTIES
+    POSITION_INDEPENDENT_CODE ON
+)
 add_executable(binary fsst.cpp)
 target_link_libraries (binary LINK_PUBLIC fsst)
 target_link_libraries (binary LINK_PUBLIC Threads::Threads)
